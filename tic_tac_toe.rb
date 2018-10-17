@@ -23,7 +23,7 @@ class Boardcase
 		@board = Board.new
 	end
 
-	def tableau(params = nil,sigle = nil)
+	def tableau(params = nil,sigle = nil,tour = nil)
 		
 		case params
 			when 1
@@ -47,28 +47,28 @@ class Boardcase
 		end
 			@board.show_board
 		if @board.cases[0][0] == "o" && @board.cases[0][1] == "o" && @board.cases[0][2] == "o" || @board.cases[0][0] == "x" && @board.cases[0][1] == "x" && @board.cases[0][2] == "x"then
-			puts "Gagner!!!!!!!!!!!!!!!!!!!!!!"
+			puts "#{tour} à gagner!!!"
 			exit
 		elsif @board.cases[1][0] == "o" && @board.cases[1][1] == "o" && @board.cases[1][2] == "o" || @board.cases[1][0] == "x" && @board.cases[1][1] == "x" && @board.cases[1][2] == "x" then
-			puts "Gagner!!!!!!!!!!!!!!!!!!!!!!"
+			puts "#{tour} à gagner!!!"
 			exit
 		elsif @board.cases[2][0] == "o" && @board.cases[2][1] == "o" && @board.cases[2][2] == "o" || @board.cases[2][0] == "x" && @board.cases[2][1] == "x" && @board.cases[2][2] == "x" then
-			puts "Gagner!!!!!!!!!!!!!!!!!!!!!!"
+			puts "#{tour} à gagner!!!"
 			exit
 		elsif @board.cases[0][0] == "o" && @board.cases[1][0] == "o" && @board.cases[2][0] == "o" || @board.cases[0][0] == "x" && @board.cases[1][0] == "x" && @board.cases[2][0] == "x" then
-			puts "Gagner!!!!!!!!!!!!!!!!!!!!!!"
+			puts "#{tour} à gagner!!!"
 			exit
 		elsif @board.cases[0][1] == "o" && @board.cases[1][1] == "o" && @board.cases[2][1] == "o" || @board.cases[0][1] == "x" && @board.cases[1][1] == "x" && @board.cases[2][1] == "x" then
-			puts "Gagner!!!!!!!!!!!!!!!!!!!!!!"
+			puts "#{tour} à gagner!!!"
 			exit
 		elsif @board.cases[0][2] == "o" && @board.cases[1][2] == "o" && @board.cases[2][2] == "o" || @board.cases[0][2] == "x" && @board.cases[1][2] == "x" && @board.cases[2][2] == "x" then
-			puts "Gagner!!!!!!!!!!!!!!!!!!!!!!"
+			puts "#{tour} à gagner!!!"
 			exit
 		elsif @board.cases[0][0] == "o" && @board.cases[1][1] == "o" && @board.cases[2][2] == "o" || @board.cases[0][0] == "x" && @board.cases[1][1] == "x" && @board.cases[2][2] == "x" then
-			puts "Gagner!!!!!!!!!!!!!!!!!!!!!!"
+			puts "#{tour} à gagner!!!"
 			exit
 		elsif @board.cases[0][2] == "o" && @board.cases[1][1] == "o" && @board.cases[2][0] == "o" || @board.cases[0][2] == "x" && @board.cases[1][1] == "x" && @board.cases[2][0] == "x" then
-			puts "Gagner!!!!!!!!!!!!!!!!!!!!!!"
+			puts "#{tour} à gagner!!!"
 			exit
 		end
 	end
@@ -110,10 +110,10 @@ class Game
 			if x == 1 ||  x == 2 ||  x == 3 ||  x == 4 ||  x == 5||  x == 6||  x == 7||  x == 8 ||  x == 9 then
 				if sigle == "x" then
 					sigle = "o"
-					@boardcase.tableau(x,sigle)
+					@boardcase.tableau(x,sigle,@tour)
 				elsif sigle == "o" then
 					sigle = "x"
-					@boardcase.tableau(x,sigle)
+					@boardcase.tableau(x,sigle,@tour)
 				end
 				count += 1 
 				if @tour == j1 then
